@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export default ({children, ...props}) => (
-  <div>
+  <MuiThemeProvider>
     {children}
-  </div>
+  </MuiThemeProvider>
 );
 

@@ -1,29 +1,25 @@
 import React, { Component } from 'react';
-import AppBar from 'material-ui/AppBar';
-import ListView from '../components/ListView'
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import NavBar from '../components/NavBar'
 import {
-  getItems
+  getItem
 } from '../actions/items/index'
+import NavBar from '../components/NavBar'
 
-class Dashboard extends Component {
+class ProductDetail extends Component {
   constructor(props) {
     super(props)
   }
   componentWillMount(){
-    getItems()(this.props.dispatch)
+    getItem(this.props.params.id)(this.props.dispatch)
   }
-
   render(){
     return (
       <div>
         <NavBar/>
-        <div className='PicHeader'/>
-        <ListView
-          data={this.props.items}
-        />
+        <p>{this.props.item.id}</p>
+        <p>{this.props.item.title}</p>
+        <img src={this.props.item.img}/>
+        <p>{this.props.item.price}</p>
       </div>
     )
   }
@@ -32,14 +28,14 @@ class Dashboard extends Component {
 function mapStateToProps(state) {
   const {
     isFetching,
-    items,
+    item,
   } = state.item || {
     isFetching: true,
-    items: []
+    item: []
   }
   return {
     isFetching,
-    items
+    item
   }
 }
 
@@ -49,4 +45,4 @@ function mapDispatchToProps(dispatch) {
   }
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps,mapDispatchToProps)(ProductDetail)

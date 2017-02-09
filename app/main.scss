@@ -1,3 +1,45 @@
 body {
-  background: cornsilk;
+  margin: 0;
+}
+
+.PicHeader {
+  width: 100%;
+  height: auto;
+  min-height: 557px;
+  background-image: url("http://www.baynewsnow.com/wp-content/uploads/2016/04/01_160328_Krause_Entrance.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position: 50% 50%;
+}
+
+.UlyngoLogo {
+  width: 100px;
+}
+
+$a-tags: 'a, a:active, a:hover, a:visited';
+.albumPanel {
+  #{$a-tags} {
+    color: black;
+    text-decoration: none;
+    text-align: center;
+  }
+}
+.album {
+  border-radius: 1em;
+  text-decoration: none;
+  margin: auto;
+}
+
+.w1 img {
+  width: 150px;
+  display: block;
+  margin: auto;
+  margin-top: 1em;
+}
+
+.w2 img {
+  width: 250px;
+  display: block;
+  margin: auto;
+  margin-top: 1em;
 }
